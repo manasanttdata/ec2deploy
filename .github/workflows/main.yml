@@ -35,7 +35,7 @@ jobs:
         run: cd site; zip ../site.zip *; cd ..; zip [yourApp].zip site.zip aws-windows-deployment-manifest.json
 
       - name: Deploy to ec2_poc
-        uses: einaregilsso/ec2_poc-deploy@v16
+        uses: manasanttdata/ec2deploy@v16
         with:
           #aws_secret_key: ${{ secrets.EC2_SSH_KEY }}
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
