@@ -37,10 +37,15 @@ jobs:
       - name: Deploy to ec2_poc
         uses: einaregilsso/ec2_poc-deploy@v16
         with:
-      
-          aws_secret_key: ${{ secrets.EC2_SSH_KEY }}
-          application_name: [yourELBAppName]
-          environment_name: [ec2_poc]
-          version_label: ${{ github.run_id }}
-          region: [yourRegion]
-          deployment_package: [yourApp].zip
+          #aws_secret_key: ${{ secrets.EC2_SSH_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.EC2_HOST_DNS }}
+          REMOTE_USER: ${{ secrets.USERNAME }}
+          TARGET: ${{ secrets.TARGET_DIR }}
+
+          #application_name: [yourELBAppName]
+          #environment_name: [ec2_poc]
+         
+          #version_label: ${{ github.run_id }}
+          #region: [Stockholm]
+          #deployment_package: [yourApp].zip
